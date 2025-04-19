@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EFESCTY0S4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EFESCTY0S4');
+</script>
+
+  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Generate powerful LinkedIn Boolean search strings effortlessly! Find the right candidates or job opportunities with precise targeting. Easy-to-use app for recruiters, job seekers, and researchers." />
+
+  <meta name="google-site-verification" content="zDYE9CKvXIbXZNd02uOO3KK_di9JhmjQpIVHrtXzOLI" />
+  <!-- Meta Tags for Social Sharing -->
+    <meta property="og:title" content="LinkedIn Boolean Search Generator" />
+    <meta property="og:description" content="Quickly generate advanced Boolean search strings to find top search results on LinkedIn!" />
+    <meta property="og:image" content="https://notoolsnocraft.github.io/LinkedIn-Boolean-Search-Generator//LinkedIn%20Boolean%20Search%20Generator%20Thumbnail.webp" />
+    <meta property="og:url" content="https://notoolsnocraft.github.io/LinkedIn-Boolean-Search-Generator/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="LinkedIn Boolean Search Generator" />
+    <meta name="twitter:description" content="Quickly generate advanced Boolean search strings to find top search results on LinkedIn!" />
+    <meta name="twitter:image" content="https://notoolsnocraft.github.io/LinkedIn-Boolean-Search-Generator//LinkedIn%20Boolean%20Search%20Generator%20Thumbnail.webp" />
+    <meta name="twitter:site" content="https://notoolsnocraft.github.io/LinkedIn-Boolean-Search-Generator/" />
+  
+  <title>Boolean Search String Generator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+    }
+
+    /* Top Navigation */
+    .navbar {
+      background-color: #0077cc;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .navbar h2 {
+      margin: 0;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+  /* Intro Content */
+    .intro {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    background-color: #ffffff;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+    gap: 20px;
+    }
+
+    .intro-text {
+    flex: 1;
+    min-width: 280px;
+    }
+
+    .intro-text h2 {
+    margin-top: 0;
+    font-size: 2rem;
+    color: #0077cc;
+    text-align: center;
+    }
+
+    .intro-text p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    text-align: justify;
+    }
+
+    .intro-image {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+    }
+
+    .intro-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    }
+
+    /* Main Content */
+    main {
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 800px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    .input-group input {
+      flex: 1;
+      padding: 0 10px;
+      margin-right: 10px;
+      font-size: 17px;
+    }
+
+    .input-group button {
+      
+        display: inline-block;
+                outline: 0;
+                border: none;
+                cursor: pointer;
+                line-height: 1.2rem;
+                font-weight: 900;
+                background: #007a5a;
+                padding: 8px 14px 9px;
+                font-size: 15px;
+                border-radius: 4px;
+                color: #fff;
+                height: 36px;
+                margin-right: 10px;
+                
+    }
+
+    #output {
+      background: #eee;
+      padding: 15px;
+      border-radius: 5px;
+      white-space: pre-wrap;
+      font-size: 17px;
+    }
+
+    button {
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    border-radius: 6px;
+    border: 2px solid #ff4742;
+    color: #fff;
+    background-color: #ff4742;
+    padding: 4px 8px; /* reduced padding */
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 4px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1.5px 0px;
+    font-weight: 600; /* slightly lighter */
+    font-size: 14px;  /* smaller font */
+    height: auto;     /* let content determine height */
+    transition: background-color 0.2s, color 0.2s;
+}
+
+    button.generate {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background: #0077cc;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button.generate:hover {
+      background: #005fa3;
+    }
+
+
+    .intro.double-text {
+  justify-content: space-between;
+  align-items: flex-start; /* Make sure top alignment is preserved */
+}
+
+
+
+    /* Footer */
+    footer {
+        
+      background-color: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+    }
+
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .container-wide {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.two-columns {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.column-left,
+.column-right {
+  flex: 1;
+  min-width: 300px;
+}
+
+@media (max-width: 768px) {
+  .two-columns {
+    flex-direction: column;
+  }
+
+  .column-left,
+  .column-right {
+    width: 100%;
+  }
+}
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-wide">
+  <nav class="navbar">
+    <h2>Boolean Search String Generator</h2>
+    
+  </nav>
+</div>
+
+  <section class="intro">
+    <div class="intro-text">
+      <h2>What is Boolean Search String Generator?</h2>
+      <p>
+        This app helps recruiters, sourcers, and researchers easily build complex Boolean search strings optimized for LinkedIn.
+        Just enter your job titles, mandatory skills, nice to have skills, locations, industries, and exclusion terms — and the generator will craft a precise search string for you.
+      </p>
+      <p>
+        Whether you're looking for candidates, job opportunities, business leads, or industry insights on LinkedIn, Boolean logic can give you a powerful edge. This app supports all kinds of searches — from finding niche professionals by combining specific titles and skills, to locating companies in certain regions, or even filtering out irrelevant results. It's perfect for job seekers, recruiters, sales professionals, and market researchers who want more targeted and efficient search results.
+    </p>
+
+    </div>
+    <div class="intro-image">
+      <img src="Boolean Seach Generator for LinkedIn.webp" alt="Boolean Search String Illustration" />
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <h1>Boolean Search Generator</h1>
+
+      <div class="two-columns">
+        <div class="column-left">
+          <div class="section">
+            <h3>Job Titles (OR logic)</h3>
+            <div id="jobTitles"></div>
+            <button onclick="addField('jobTitles')">Add Job Title</button>
+          </div>
+      
+          <div class="section">
+            <h3>Mandatory Skills (AND logic)</h3>
+            <div id="mandatorySkills"></div>
+            <button onclick="addField('mandatorySkills')">Add Mandatory Skill</button>
+          </div>
+      
+          <div class="section">
+            <h3>Nice to Have Skills (OR logic)</h3>
+            <div id="niceSkills"></div>
+            <button onclick="addField('niceSkills')">Add Nice to Have Skill</button>
+          </div>
+        </div>
+      
+        <div class="column-right">
+          <div class="section">
+            <h3>Locations (AND logic)</h3>
+            <div id="locations"></div>
+            <button onclick="addField('locations')">Add Location</button>
+          </div>
+      
+          <div class="section">
+            <h3>Industries (OR logic)</h3>
+            <div id="industries"></div>
+            <button onclick="addField('industries')">Add Industry</button>
+          </div>
+      
+          <div class="section">
+            <h3>Exclude Terms (NOT logic)</h3>
+            <div id="excludes"></div>
+            <button onclick="addField('excludes')">Add Exclude Term</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="generate" onclick="generateBoolean()">Generate Boolean Search</button>
+
+      <div class="section">
+        <h3>Generated Boolean Search</h3>
+        <pre id="output"></pre>
+        
+      </div>
+      <button onclick="copyToClipboard()">Copy to Clipboard</button>
+      <button onclick="searchOnGoogle()">Search on Google</button>
+    </div>
+  </main>
+
+  <section class="intro double-text">
+    <div class="intro-text">
+      <h2>💡 Tips for Smarter Searches</h2>
+      <p>
+        New to Boolean search? Start simple by using "OR" to group similar job titles (e.g. "Designer" OR "Creative Director"), "AND" to combine key skills (e.g. "Figma" AND "UX"), and "NOT" to exclude unwanted terms (e.g. NOT "Intern"). The generator ensures the logic is correctly formatted so your results are sharp and relevant.
+      </p>
+    </div>
+  
+    <div class="intro-text">
+      <h2>🌐 Where Can I Use the Strings?</h2>
+      <p>
+        The Boolean strings you generate here work seamlessly in LinkedIn search, but they're also useful for Google (e.g., "site:linkedin.com/in"), GitHub, job boards, CRM platforms, and even browser extensions that support Boolean logic. It's a versatile tool that fits right into your sourcing workflow.
+      </p>
+    </div>
+  </section>
+<div class="container-wide">
+  <footer>
+    <p>The app was created by:<a href="https://www.linkedin.com/in/petar-skrbic/" target="_blank">Petar Škrbić</a></p>
+    &copy; 2025 Boolean App. All rights reserved.
+    
+  </footer>
+</div>
+
+<script>
+  // Helper functions
+  function quoteIfNeeded(value) {
+    return value.includes(" ") ? `"${value}"` : value;
+  }
+
+  function collectValues(sectionId) {
+    return [...document.getElementById(sectionId).querySelectorAll("input")]
+      .map(input => input.value.trim())
+      .filter(value => value);
+  }
+
+  const locationExpansions = {
+    "uk": ["UK", "United Kingdom"],
+    "united kingdom": ["UK", "United Kingdom"],
+    "us": ["US", "United States", "USA"],
+    "united states": ["US", "United States", "USA"],
+    "usa": ["US", "United States", "USA"],
+    "uae": ["UAE", "United Arab Emirates"],
+    "germany": ["Germany", "Deutschland"],
+    "netherlands": ["Netherlands", "Holland"],
+    // Add more countries/regions as needed
+  };
+
+  const industryExpansions = {
+    "apple": ["Apple", "Mac", "iOS"],
+    "microsoft": ["Microsoft", "Windows", "Azure"],
+    "google": ["Google", "Android", "YouTube"],
+    "amazon": ["Amazon", "AWS", "Prime"],
+    // Add more companies/brands/tech domains as needed
+  };
+
+  function expandLocations(locations) {
+    const flatSet = new Set();
+
+    return locations.map(loc => {
+      const key = loc.trim().toLowerCase();
+      const expansions = locationExpansions[key];
+
+      if (expansions && expansions.length > 1) {
+        const deduped = expansions
+          .map(quoteIfNeeded)
+          .filter(item => {
+            if (flatSet.has(item.toLowerCase())) return false;
+            flatSet.add(item.toLowerCase());
+            return true;
+          });
+
+        return deduped.length > 1 ? `(${deduped.join(" OR ")})` : deduped[0];
+      } else {
+        const cleaned = quoteIfNeeded(loc);
+        if (flatSet.has(cleaned.toLowerCase())) return null;
+        flatSet.add(cleaned.toLowerCase());
+        return cleaned;
+      }
+    }).filter(Boolean);
+  }
+
+  function expandIndustries(industries) {
+    const flatSet = new Set();
+
+    return industries.map(ind => {
+      const key = ind.trim().toLowerCase();
+      const expansions = industryExpansions[key];
+
+      if (expansions && expansions.length > 1) {
+        const deduped = expansions
+          .map(quoteIfNeeded)
+          .filter(item => {
+            if (flatSet.has(item.toLowerCase())) return false;
+            flatSet.add(item.toLowerCase());
+            return true;
+          });
+
+        return deduped.length > 1 ? `(${deduped.join(" OR ")})` : deduped[0];
+      } else {
+        const cleaned = quoteIfNeeded(ind);
+        if (flatSet.has(cleaned.toLowerCase())) return null;
+        flatSet.add(cleaned.toLowerCase());
+        return cleaned;
+      }
+    }).filter(Boolean);
+  }
+
+  function generateBoolean() {
+  const jobTitlesRaw = collectValues("jobTitles").map(quoteIfNeeded);
+  const locationsRaw = collectValues("locations");
+  const industriesRaw = collectValues("industries");
+  const excludesRaw = collectValues("excludes").map(val => `NOT ${quoteIfNeeded(val)}`);
+
+  const mandatorySkills = collectValues("mandatorySkills").map(quoteIfNeeded);
+  const niceSkills = collectValues("niceSkills").map(quoteIfNeeded);
+
+  const jobTitlesQuery = jobTitlesRaw.length > 1
+    ? `(${jobTitlesRaw.join(" OR ")})`
+    : jobTitlesRaw[0];
+
+  const expandedIndustries = expandIndustries(industriesRaw);
+  const industriesQuery = expandedIndustries.length > 1
+    ? `(${expandedIndustries.join(" OR ")})`
+    : expandedIndustries[0];
+
+  const expandedLocations = expandLocations(locationsRaw);
+  const locationsQuery = expandedLocations.length > 1
+    ? `(${expandedLocations.join(" OR ")})`
+    : expandedLocations[0];
+
+  const mandatorySkillsQuery = mandatorySkills.length > 0
+    ? mandatorySkills.join(" AND ")
+    : null;
+
+  const niceSkillsQuery = niceSkills.length > 1
+    ? `(${niceSkills.join(" OR ")})`
+    : niceSkills[0];
+
+  const excludesQuery = excludesRaw.join(" AND ");
+
+  const parts = [];
+  if (jobTitlesQuery) parts.push(jobTitlesQuery);
+  if (mandatorySkillsQuery) parts.push(mandatorySkillsQuery);
+  if (niceSkillsQuery) parts.push(niceSkillsQuery);
+  if (locationsQuery) parts.push(locationsQuery);
+  if (industriesQuery) parts.push(industriesQuery);
+  if (excludesQuery) parts.push(excludesQuery);
+
+  const finalQuery = parts.join(" \nAND ");
+  document.getElementById("output").textContent = finalQuery || "No input provided.";
+}
+
+
+
+  // Copy to clipboard
+  function copyToClipboard() {
+    const output = document.getElementById("output").textContent;
+    navigator.clipboard.writeText(output).then(() => {
+      alert("Copied to clipboard!");
+    }).catch(err => {
+      alert("Failed to copy text: " + err);
+    });
+  }
+
+  // Add input fields dynamically
+  function addField(sectionId) {
+    const container = document.getElementById(sectionId);
+    const div = document.createElement("div");
+    div.className = "input-group";
+    const input = document.createElement("input");
+    input.type = "text";
+    input.placeholder = `Enter value...`;
+    const removeBtn = document.createElement("button");
+    removeBtn.textContent = "X";
+    removeBtn.onclick = () => div.remove();
+    div.appendChild(input);
+    div.appendChild(removeBtn);
+    container.appendChild(div);
+  }
+
+  function searchOnGoogle() {
+  const output = document.getElementById("output").textContent.trim();
+  if (!output) {
+    alert("Please generate a Boolean search string first.");
+    return;
+  }
+  const base = 'site:linkedin.com/in/ OR site:linkedin.com/pub/';
+  const fullQuery = `${base} ${output}`;
+  const encodedQuery = encodeURIComponent(fullQuery);
+  const searchUrl = `https://www.google.com/search?q=${encodedQuery}`;
+  window.open(searchUrl, '_blank');
+}
+</script>
+
+
+
+
+
+</body>
+</html>
