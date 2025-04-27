@@ -89,7 +89,7 @@ const suggestionSources = {
     "jobTitles": jobTitleSuggestions,
     "excludeJobTitles": jobTitleSuggestions,
     "seniorityLevels": seniorityLevelsSuggestions,
-    "excludeseniorityLevels": seniorityLevelsSuggestios
+    "excludeseniorityLevels": seniorityLevelsSuggestions
 };
 
 // --- FUNCTIONS ---
