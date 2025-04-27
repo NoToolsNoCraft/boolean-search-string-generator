@@ -17,10 +17,11 @@
   <meta name="description" content="Generate powerful LinkedIn Boolean search strings effortlessly! Find the right candidates or job opportunities with precise targeting. Easy-to-use app for recruiters, job seekers, and researchers." />
 
   <meta name="google-site-verification" content="zDYE9CKvXIbXZNd02uOO3KK_di9JhmjQpIVHrtXzOLI" />
+
   <!-- Meta Tags for Social Sharing -->
     <meta property="og:title" content="Boolean Search String Generator" />
     <meta property="og:description" content="Quickly generate advanced Boolean search strings to find top search results on LinkedIn!" />
-    <meta property="og:image" content="https://notoolsnocraft.github.io/boolean-search-string-generator//LinkedIn%20Boolean%20Search%20Generator%20Thumbnail.webp" />
+    <meta property="og:image" content="https://notoolsnocraft.github.io/boolean-search-string-generator/Boolean%20Search%20String%20Generator.webp" />
     <meta property="og:url" content="https://notoolsnocraft.github.io/boolean-search-string-generator/" />
     <meta property="og:type" content="website" />
 
@@ -28,26 +29,28 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Boolean Search String Generator" />
     <meta name="twitter:description" content="Quickly generate advanced Boolean search strings to find top search results on LinkedIn!" />
-    <meta name="twitter:image" content="https://notoolsnocraft.github.io/boolean-search-string-generator//LinkedIn%20Boolean%20Search%20Generator%20Thumbnail.webp" />
+    <meta name="twitter:image" content="https://notoolsnocraft.github.io/boolean-search-string-generator/Boolean%20Search%20String%20Generator.webp" />
     <meta name="twitter:site" content="https://notoolsnocraft.github.io/boolean-search-string-generator/" />
   
   <title>Boolean Search String Generator</title>
+  
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      background: #f4f4f4;
+      background: #ffffff;
     }
 
     /* Top Navigation */
     .navbar {
-      background-color: #0077cc;
+      background-color: #5f0057;
       color: white;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      
     }
 
     .navbar h2 {
@@ -77,7 +80,7 @@
     flex-wrap: wrap;
     padding: 40px 20px;
     background-color: #ffffff;
-    max-width: 1200px;
+    max-width: 80%;
     margin: 0 auto;
     align-items: center;
     gap: 20px;
@@ -121,8 +124,8 @@
     }
 
     .container {
-      max-width: 800px;
-      background: #fff;
+      max-width: 1500px;
+      background: #d9ffa8;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -137,6 +140,12 @@
       margin-bottom: 20px;
     }
 
+    h3 {
+      
+      font-size: 1.1rem;
+      
+    }
+
     .input-group {
       display: flex;
       margin-bottom: 10px;
@@ -146,7 +155,7 @@
       flex: 1;
       padding: 0 10px;
       margin-right: 10px;
-      font-size: 17px;
+      font-size: 15px;
     }
 
     .input-group button {
@@ -236,32 +245,23 @@
     }
 
     .container-wide {
-  max-width: 1240px;
-  margin: 0 auto;
-}
+      max-width: 1240px;
+      margin: 0 auto;
+    }
 
-.two-columns {
-  display: flex;
-  flex-wrap: wrap;
-  
-}
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0 20px;
+    }
 
-.column-left,
-.column-right {
-  flex: 1;
-  min-width: 300px;
-}
+    @media (max-width: 768px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
 
-@media (max-width: 768px) {
-  .two-columns {
-    flex-direction: column;
-  }
 
-  .column-left,
-  .column-right {
-    width: 100%;
-  }
-}
 
     /* Responsive */
     @media (max-width: 768px) {
@@ -273,21 +273,22 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="suggestedJobs.css">
 </head>
 <body>
 
-<div class="container-wide">
+
   <nav class="navbar">
     <h2>Boolean Search String Generator</h2>
     
   </nav>
-</div>
+  
 
   <section class="intro">
     <div class="intro-text">
       <h2>What is Boolean Search String Generator?</h2>
       <p>
-        This app helps recruiters, sourcers, and researchers easily build complex Boolean search strings optimized for LinkedIn.
+        This app helps recruiters, sourcers, and researchers easily build complex Boolean search strings optimized for searching on platforms such as LinkedIn.
         Just enter your job titles, mandatory skills, nice to have skills, locations, industries, and exclusion terms — and the generator will craft a precise search string for you.
       </p>
       <p>
@@ -296,7 +297,7 @@
 
     </div>
     <div class="intro-image">
-      <img src="Boolean Seach Generator for LinkedIn.webp" alt="Boolean Search String Illustration" />
+      <img src="Boolean Search Generator for LinkedIn.webp" alt="Boolean Search String Illustration" />
     </div>
   </section>
 
@@ -304,12 +305,18 @@
     <div class="container">
       <h1>Boolean Search Generator</h1>
 
-      <div class="two-columns">
-        <div class="column-left">
+      <div class="form-grid">
+        
+        <div class="section">
+          <h3>Job Titles (OR logic)</h3>
+          <div id="jobTitles"></div>
+          <button onclick="addField('jobTitles')">Add Job Title</button>
+        </div>
+
           <div class="section">
-            <h3>Job Titles (OR logic)</h3>
-            <div id="jobTitles"></div>
-            <button onclick="addField('jobTitles')">Add Job Title</button>
+            <h3>Exclude Job Titles (NOT logic)</h3>
+            <div id="excludeJobTitles"></div>
+            <button onclick="addField('excludeJobTitles')">Add Exclude Job Title</button>
           </div>
       
           <div class="section">
@@ -323,28 +330,78 @@
             <div id="niceSkills"></div>
             <button onclick="addField('niceSkills')">Add Nice to Have Skill</button>
           </div>
-        </div>
-      
-        <div class="column-right">
+       
           <div class="section">
             <h3>Locations (AND logic)</h3>
             <div id="locations"></div>
             <button onclick="addField('locations')">Add Location</button>
           </div>
-      
+
+          <div class="section">
+            <h3>Exclude Locations (NOT logic)</h3>
+            <div id="excludelocations"></div>
+            <button onclick="addField('excludelocations')">Add Location</button>
+          </div>
+
           <div class="section">
             <h3>Industries (OR logic)</h3>
             <div id="industries"></div>
             <button onclick="addField('industries')">Add Industry</button>
           </div>
+
+          <div class="section">
+            <h3>Current Company (OR logic)</h3>
+            <div id="currentCompanies"></div>
+            <button onclick="addField('currentCompanies')">Add Current Company</button>
+          </div>
+          
+          <div class="section">
+            <h3>Past Company (OR logic)</h3>
+            <div id="pastCompanies"></div>
+            <button onclick="addField('pastCompanies')">Add Past Company</button>
+          </div>
+          
+          <div class="section">
+            <h3>School / University (OR logic)</h3>
+            <div id="schools"></div>
+            <button onclick="addField('schools')">Add School</button>
+          </div>
+          
+          <div class="section">
+            <h3>Field of Study (OR logic)</h3>
+            <div id="fieldsOfStudy"></div>
+            <button onclick="addField('fieldsOfStudy')">Add Field of Study</button>
+          </div>
+          
+          
+          <div class="section">
+            <h3>Seniority Level (OR logic)</h3>
+            <div id="seniorityLevels"></div>
+            <button onclick="addField('seniorityLevels')">Add Seniority Level</button>
+          </div>
+
+          <div class="section">
+            <h3>Exclude Seniority (NOT logic)</h3>
+            <div id="excludeseniorityLevels"></div>
+            <button onclick="addField('excludeseniorityLevels')">Add Seniority Level</button>
+          </div>
+          
+          
+          <div class="section">
+            <h3>Keywords (OR logic)</h3>
+            <div id="keywords"></div>
+            <button onclick="addField('keywords')">Add Keyword</button>
+          </div>
+      
       
           <div class="section">
-            <h3>Exclude Terms (NOT logic)</h3>
+            <h3>Exclude Keywords (NOT logic)</h3>
             <div id="excludes"></div>
             <button onclick="addField('excludes')">Add Exclude Term</button>
           </div>
-        </div>
+        
       </div>
+
 
       <button class="generate" onclick="generateBoolean()">Generate Boolean Search</button>
 
@@ -373,13 +430,13 @@
       </p>
     </div>
   </section>
-<div class="container-wide">
+
   <footer>
     <p>The app was created by:<a href="https://www.linkedin.com/in/petar-skrbic/" target="_blank">Petar Škrbić</a></p>
     &copy; 2025 Boolean App. All rights reserved.
     
   </footer>
-</div>
+
 
 <script>
   // Helper functions
@@ -466,13 +523,29 @@
   }
 
   function generateBoolean() {
+
   const jobTitlesRaw = collectValues("jobTitles").map(quoteIfNeeded);
+  const excludeJobTitles = collectValues("excludeJobTitles").map(quoteIfNeeded);
+
   const locationsRaw = collectValues("locations");
+  const excludelocations = collectValues("excludelocations").map(quoteIfNeeded);
+
   const industriesRaw = collectValues("industries");
   const excludesRaw = collectValues("excludes").map(val => `NOT ${quoteIfNeeded(val)}`);
-
   const mandatorySkills = collectValues("mandatorySkills").map(quoteIfNeeded);
   const niceSkills = collectValues("niceSkills").map(quoteIfNeeded);
+  const currentCompanies = collectValues("currentCompanies").map(quoteIfNeeded).join(" OR ");
+  const pastCompanies = collectValues("pastCompanies").map(quoteIfNeeded).join(" OR ");
+  const schools = collectValues("schools").map(quoteIfNeeded).join(" OR ");
+  const fieldsOfStudy = collectValues("fieldsOfStudy").map(quoteIfNeeded).join(" OR ");
+  
+  const seniorityLevels = collectValues("seniorityLevels").map(quoteIfNeeded).join(" OR ");
+  const excludeseniorityLevels = collectValues("excludeseniorityLevels").map(quoteIfNeeded);
+
+
+  const keywords = collectValues("keywords").map(quoteIfNeeded).join(" OR ");
+
+
 
   const jobTitlesQuery = jobTitlesRaw.length > 1
     ? `(${jobTitlesRaw.join(" OR ")})`
@@ -500,10 +573,26 @@
 
   const parts = [];
   if (jobTitlesQuery) parts.push(jobTitlesQuery);
+  if (excludeJobTitles.length) parts.push(`NOT (${excludeJobTitles.join(" OR ")})`);
+
   if (mandatorySkillsQuery) parts.push(mandatorySkillsQuery);
   if (niceSkillsQuery) parts.push(niceSkillsQuery);
+
   if (locationsQuery) parts.push(locationsQuery);
+  if (excludelocations.length) parts.push(`NOT (${excludelocations.join(" OR ")})`);
   if (industriesQuery) parts.push(industriesQuery);
+  if (currentCompanies) parts.push(`(${currentCompanies})`);
+  if (pastCompanies) parts.push(`(${pastCompanies})`);
+  if (schools) parts.push(`(${schools})`);
+  if (fieldsOfStudy) parts.push(`(${fieldsOfStudy})`);
+ 
+  if (seniorityLevels) parts.push(`(${seniorityLevels})`);
+  if (excludeseniorityLevels.length) parts.push(`NOT (${excludeseniorityLevels.join(" OR ")})`);
+
+  
+  if (keywords) parts.push(`(${keywords})`);
+  
+  
   if (excludesQuery) parts.push(excludesQuery);
 
   const finalQuery = parts.join(" \nAND ");
@@ -530,6 +619,7 @@
     const input = document.createElement("input");
     input.type = "text";
     input.placeholder = `Enter value...`;
+    input.oninput = () => filterSuggestions(input, sectionId); // Trigger suggestion on input change
     const removeBtn = document.createElement("button");
     removeBtn.textContent = "X";
     removeBtn.onclick = () => div.remove();
@@ -539,18 +629,77 @@
   }
 
   function searchOnGoogle() {
-  const output = document.getElementById("output").textContent.trim();
+  let output = document.getElementById("output").textContent.trim();
   if (!output) {
     alert("Please generate a Boolean search string first.");
     return;
   }
+
+  // 1. Replace 'AND NOT (something)' with splitting exclusions
+  output = output.replace(/\s+AND\s+NOT\s+\(([^)]+)\)/g, (match, group) => {
+    const exclusions = group.split(/\s+OR\s+/).map(term => {
+      term = term.trim();
+      if (!term.startsWith('"')) {
+        term = `"${term}"`;
+      }
+      return `-${term}`;
+    });
+    return ' ' + exclusions.join(' ');
+  });
+
+  // 2. Replace 'AND NOT something' (without parentheses)
+  output = output.replace(/\s+AND\s+NOT\s+(\S+)/g, (match, term) => {
+    term = term.trim();
+    if (!term.startsWith('"')) {
+      term = `"${term}"`;
+    }
+    return ` -${term}`;
+  });
+
+  // 3. Replace 'AND' with a space
+  output = output.replace(/\s+AND\s+/g, ' ');
+
+  // 4. Process words carefully without breaking phrases
+  output = output.replace(/(\(|\)|OR|-?site:[^\s]+|-?"[^"]+"|-?\w+)/g, match => {
+    if (
+      match.startsWith('site:') ||    // already a site
+      match === 'OR' ||                // operator
+      match.startsWith('(') ||          // parentheses
+      match.startsWith(')') ||
+      match.startsWith('-"') ||         // already quoted exclusion
+      match.startsWith('"') ||          // already quoted inclusion
+      match.startsWith('-(')            // exclusion group
+    ) {
+      return match;
+    }
+    
+    if (match.startsWith('-')) {
+      // Exclusion word
+      const word = match.substring(1);
+      return `-"${word}"`;
+    }
+
+    // Normal word
+    return `"${match}"`;
+  });
+
+  // 5. Add site search
   const base = 'site:linkedin.com/in/ OR site:linkedin.com/pub/';
   const fullQuery = `${base} ${output}`;
+
+  // 6. Encode and open
   const encodedQuery = encodeURIComponent(fullQuery);
   const searchUrl = `https://www.google.com/search?q=${encodedQuery}`;
   window.open(searchUrl, '_blank');
 }
+
+
+
+
 </script>
+
+<script src="suggestedResults.js"></script>
+
 
 
 
