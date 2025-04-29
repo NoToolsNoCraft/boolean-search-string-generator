@@ -189,10 +189,39 @@ const locationSuggestions = [
     "Skopje", "Bitola", "Kumanovo", "Prilep", "Tetovo", "Ohrid", "Gostivar", "Veles", "Štip", "Strumica",
 
     // UAE
-"UAE", "United Arab Emirates", "Abu Dhabi", "Dubai", "Sharjah", "Al Ain", "Ajman", "Fujairah", "Ras Al Khaimah", "Umm Al-Quwain", "Khor Fakkan",
-"Al Fujairah", "Al Ruwais", "Al Sila", "Hatta", "Al Dhafra", "Al Maktoum", "Al Qusais", "Dubai Marina", "Deira", "Jumeirah",
+    "UAE", "United Arab Emirates", "Abu Dhabi", "Dubai", "Sharjah", "Al Ain", "Ajman", "Fujairah", "Ras Al Khaimah", "Umm Al-Quwain", "Khor Fakkan",
+    "Al Fujairah", "Al Ruwais", "Al Sila", "Hatta", "Al Dhafra", "Al Maktoum", "Al Qusais", "Dubai Marina", "Deira", "Jumeirah",
 
-
+        // Mexico
+        "Mexico", "México",
+        "Ciudad de México", "Guadalajara", "Monterrey", "Puebla", "Tijuana", "León", "Querétaro", "Cancún", "Mérida", "Toluca",
+        "Zapopan", "Ecatepec", "Chihuahua", "San Luis Potosí", "Aguascalientes", "Saltillo", "Culiacán", "Hermosillo", "Morelia", "Tepic",
+    
+        // Brazil
+        "Brazil", "Brasil",
+        "São Paulo", "Rio de Janeiro", "Belo Horizonte", "Brasília", "Salvador", "Curitiba", "Fortaleza", "Manaus", "Recife", "Porto Alegre",
+        "Campinas", "Goiânia", "Belém", "São Luís", "Maceió", "Natal", "João Pessoa", "Teresina", "Campo Grande", "Cuiabá",
+    
+        // Argentina
+        "Argentina",
+        "Buenos Aires", "Córdoba", "Rosario", "Mendoza", "La Plata", "Tucumán", "Mar del Plata", "Salta", "Santa Fe", "San Juan",
+        "Resistencia", "Neuquén", "Santiago del Estero", "Corrientes", "Bahía Blanca", "Posadas", "Paraná", "San Luis", "Formosa", "Jujuy",
+    
+        // Peru
+        "Peru", "Perú",
+        "Lima", "Arequipa", "Trujillo", "Chiclayo", "Piura", "Cusco", "Iquitos", "Huancayo", "Tacna", "Pucallpa",
+        "Juliaca", "Cajamarca", "Ayacucho", "Huaraz", "Tarapoto", "Ica", "Sullana", "Puno", "Moquegua", "Tumbes",
+    
+        // Chile
+        "Chile",
+        "Santiago", "Valparaíso", "Concepción", "La Serena", "Antofagasta", "Temuco", "Iquique", "Puerto Montt", "Copiapó", "Rancagua",
+        "Chillán", "Arica", "Talca", "Punta Arenas", "Curicó", "Osorno", "Calama", "Quillota", "San Antonio", "Coquimbo",
+    
+        // Colombia
+        "Colombia",
+        "Bogotá", "Medellín", "Cali", "Barranquilla", "Cartagena", "Cúcuta", "Bucaramanga", "Pereira", "Santa Marta", "Manizales",
+        "Ibagué", "Villavicencio", "Neiva", "Pasto", "Montería", "Armenia", "Sincelejo", "Valledupar", "Popayán", "Riohacha",
+    
 
     // Canada
     "Canada, Canada",
@@ -585,6 +614,7 @@ document.addEventListener("click", (event) => {
         { inputId: "locationsInput", containerId: "locations" },
         { inputId: "excludelocationsInput", containerId: "excludelocations" },
         { inputId: "industrySuggestionsInput", containerId: "industries" },
+        { inputId: "excludeIndustriesInput", containerId: "excludeindustries" },
         { inputId: "companySuggestionsInput", containerId: "currentCompanies" },
         { inputId: "companySuggestionsInput", containerId: "pastCompanies" },
         { inputId: "companySuggestionsInput", containerId: "excludeCompanies" },

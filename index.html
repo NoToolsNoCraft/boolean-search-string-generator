@@ -641,6 +641,7 @@
 
   if (locationsQuery) parts.push(locationsQuery);
   if (excludelocations.length) parts.push(`NOT (${excludelocations.join(" OR ")})`);
+  
   if (industriesQuery) parts.push(industriesQuery);
   if (excludeindustries.length) parts.push(`NOT (${excludeindustries.join(" OR ")})`);
 
@@ -687,7 +688,16 @@
     input.oninput = () => filterSuggestions(input, sectionId); // Trigger suggestion on input change
     const removeBtn = document.createElement("button");
     removeBtn.textContent = "X";
-    removeBtn.onclick = () => div.remove();
+
+    removeBtn.onclick = () => {
+    // Remove suggestion box if any exists for this input
+    const suggestionBox = div.querySelector(".suggestions");
+    if (suggestionBox) {
+      suggestionBox.remove();
+    }
+    div.remove();
+    };
+
     div.appendChild(input);
     div.appendChild(removeBtn);
     container.appendChild(div);
