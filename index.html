@@ -271,6 +271,10 @@
         align-items: flex-start;
         margin-top: 1rem;
       }
+
+      .reset {
+        margin-top: 1rem;
+      }
     }
   </style>
   <link rel="stylesheet" href="suggestedJobs.css">
@@ -350,6 +354,12 @@
           </div>
 
           <div class="section">
+            <h3>Exclude Industries (NOT logic)</h3>
+            <div id="excludeindustries"></div>
+            <button onclick="addField('excludeindustries')">Add Industry</button>
+          </div>
+
+          <div class="section">
             <h3>Current Company (OR logic)</h3>
             <div id="currentCompanies"></div>
             <button onclick="addField('currentCompanies')">Add Current Company</button>
@@ -359,6 +369,12 @@
             <h3>Past Company (OR logic)</h3>
             <div id="pastCompanies"></div>
             <button onclick="addField('pastCompanies')">Add Past Company</button>
+          </div>
+
+          <div class="section">
+            <h3>Exclude Company (NOT logic)</h3>
+            <div id="excludeCompanies"></div>
+            <button onclick="addField('excludeCompanies')">Add Past Company</button>
           </div>
           
           <div class="section">
@@ -412,6 +428,8 @@
       </div>
       <button onclick="copyToClipboard()">Copy to Clipboard</button>
       <button onclick="searchOnGoogle()">Search on Google</button>
+      <button class="reset" onclick="resetFields()">Reset</button>
+
     </div>
   </main>
 
@@ -431,9 +449,44 @@
     </div>
   </section>
 
+  <section class="intro double-text">
+    <div class="intro-text">
+      <h2>🔒 LinkedIn's Official Rules</h2>
+      <p>Many professionals ask whether this tool is fully legal or just another gray-area risk. <br>LinkedIn prohibits any third-party tools that:</p>
+      <ul>
+        <li>❌ Scrape or copy data from LinkedIn profiles</li>
+        <li>❌ Use bots, scripts, browser plugins, or extensions that <br>Automate messages, connection requests, or search activity</li>
+        
+        <li>❌ Alter the appearance or functionality of LinkedIn pages</li>
+        <li>❌ Generate fake accounts or engagement</li>
+        <li>❌ Bypass LinkedIn’s access controls or rate limits</li>
+      </ul>
+      <p>📄 View the full policy on prohibited tools on 
+        <a href="https://www.linkedin.com/help/linkedin/answer/a1341387/prohibited-software-and-extensions?lang=en" target="_blank">
+          LinkedIn’s official page
+        </a>.
+      </p>
+    </div>
+  
+    <div class="intro-text">
+      <h2>✅ 100% LinkedIn-Friendly by Design</h2>
+      <p>This Boolean String Generator is fully compliant:</p>
+      <ul>
+        <li>✔️ No scraping, no automation, no logins required</li>
+        <li>✔️ Doesn’t interact with LinkedIn’s backend or UI</li>
+        <li>✔️ Purely builds text-based Boolean search queries</li>
+        <li>✔️ Works outside LinkedIn</li>
+        <li>✔️ Safe for in-house recruiters and agency professionals</li>
+        <li>✔️ Promotes ethical sourcing without any TOS violations</li>
+      </ul>
+      <p>Use with confidence — this tool respects LinkedIn’s rules and your account’s safety.</p>
+    </div>
+  </section>
+  
+
   <footer>
     <p>The app was created by:<a href="https://www.linkedin.com/in/petar-skrbic/" target="_blank">Petar Škrbić</a></p>
-    &copy; 2025 Boolean App. All rights reserved.
+    &copy; 2025 Boolean Search String Generator App. All rights reserved.
     
   </footer>
 
@@ -459,6 +512,8 @@
     "uae": ["UAE", "United Arab Emirates"],
     "germany": ["Germany", "Deutschland"],
     "netherlands": ["Netherlands", "Holland"],
+    "united arab emirates": ["UAE", "United Arab Emirates"],
+    "uae": ["UAE", "United Arab Emirates"],
     // Add more countries/regions as needed
   };
 
@@ -531,11 +586,16 @@
   const excludelocations = collectValues("excludelocations").map(quoteIfNeeded);
 
   const industriesRaw = collectValues("industries");
+  const excludeindustries = collectValues("excludeindustries").map(quoteIfNeeded);
+
   const excludesRaw = collectValues("excludes").map(val => `NOT ${quoteIfNeeded(val)}`);
   const mandatorySkills = collectValues("mandatorySkills").map(quoteIfNeeded);
   const niceSkills = collectValues("niceSkills").map(quoteIfNeeded);
+
   const currentCompanies = collectValues("currentCompanies").map(quoteIfNeeded).join(" OR ");
   const pastCompanies = collectValues("pastCompanies").map(quoteIfNeeded).join(" OR ");
+  const excludeCompanies = collectValues("excludeCompanies").map(quoteIfNeeded);
+
   const schools = collectValues("schools").map(quoteIfNeeded).join(" OR ");
   const fieldsOfStudy = collectValues("fieldsOfStudy").map(quoteIfNeeded).join(" OR ");
   
@@ -581,8 +641,12 @@
   if (locationsQuery) parts.push(locationsQuery);
   if (excludelocations.length) parts.push(`NOT (${excludelocations.join(" OR ")})`);
   if (industriesQuery) parts.push(industriesQuery);
+  if (excludeindustries.length) parts.push(`NOT (${excludeindustries.join(" OR ")})`);
+
   if (currentCompanies) parts.push(`(${currentCompanies})`);
   if (pastCompanies) parts.push(`(${pastCompanies})`);
+  if (excludeCompanies.length) parts.push(`NOT (${excludeCompanies.join(" OR ")})`);
+
   if (schools) parts.push(`(${schools})`);
   if (fieldsOfStudy) parts.push(`(${fieldsOfStudy})`);
  
@@ -694,11 +758,29 @@
 }
 
 
+function resetFields() {
+  const sectionIds = [
+    'jobTitles', 'excludeJobTitles', 'mandatorySkills', 'niceSkills',
+    'locations', 'excludelocations', 'industries', 'excludeindustries','currentCompanies',
+    'pastCompanies', 'excludeCompanies', 'schools', 'fieldsOfStudy', 'seniorityLevels',
+    'excludeseniorityLevels', 'keywords', 'excludes'
+  ];
+
+  sectionIds.forEach(id => {
+    const section = document.getElementById(id);
+    if (section) section.innerHTML = ''; // Clear all inputs and their associated "X" buttons
+  });
+
+  document.getElementById('output').textContent = ''; // Clear generated output if needed
+}
+
+
 
 
 </script>
 
 <script src="suggestedResults.js"></script>
+
 
 
 
