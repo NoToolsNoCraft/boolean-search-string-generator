@@ -84,11 +84,15 @@
     margin: 0 auto;
     align-items: center;
     gap: 20px;
+    
     }
 
     .intro-text {
     flex: 1;
     min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     }
 
     .intro-text h2 {
@@ -114,6 +118,22 @@
     max-width: 100%;
     height: auto;
     border-radius: 8px;
+    }
+
+    .start-button {
+      display: inline-block;
+      background-color: #0077cc;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .start-button:hover {
+      background: #005fa3;
     }
 
     /* Main Content */
@@ -292,22 +312,74 @@
     <div class="intro-text">
       <h2>What is Boolean Search String Generator?</h2>
       <p>
-        This app helps recruiters, sourcers, and researchers easily build complex Boolean search strings optimized for searching on platforms such as LinkedIn.
-        Just enter your job titles, mandatory skills, nice to have skills, locations, industries, and exclusion terms — and the generator will craft a precise search string for you.
+        A quick and easy tool for recruiters, sourcers, and researchers to build Boolean search strings for LinkedIn and similar platforms.
       </p>
       <p>
-        Whether you're looking for candidates, job opportunities, business leads, or industry insights on LinkedIn, Boolean logic can give you a powerful edge. This app supports all kinds of searches — from finding niche professionals by combining specific titles and skills, to locating companies in certain regions, or even filtering out irrelevant results. It's perfect for job seekers, recruiters, sales professionals, and market researchers who want more targeted and efficient search results.
-    </p>
+        Just enter job titles, skills, locations, industries, or exclusions — the generator instantly creates optimized search strings to help you find people, jobs, leads, or insights faster and more precisely.
+      </p>
 
+    
+    <a href="#main-app" class="start-button">Start Using the Boolean Generator</a>
+    
     </div>
     <div class="intro-image">
       <img src="Boolean Search Generator for LinkedIn.webp" alt="Boolean Search String Illustration" />
     </div>
   </section>
 
+  <section class="intro double-text">
+    <div class="intro-text">
+      <h2>💡 Tips for Smarter Searches</h2>
+      <p>
+        New to Boolean search? Start simple by using "OR" to group similar job titles (e.g. "Designer" OR "Creative Director"), "AND" to combine key skills (e.g. "Figma" AND "UX"), and "NOT" to exclude unwanted terms (e.g. NOT "Intern"). The generator ensures the logic is correctly formatted so your results are sharp and relevant.
+      </p>
+    </div>
+  
+    <div class="intro-text">
+      <h2>🌐 Where Can I Use the Strings?</h2>
+      <p>
+        The Boolean strings you generate here work seamlessly in LinkedIn search, but they're also useful for Google (e.g., "site:linkedin.com/in"), GitHub, job boards, CRM platforms, and even browser extensions that support Boolean logic. It's a versatile tool that fits right into your sourcing workflow.
+      </p>
+    </div>
+  </section>
+
+  <section class="intro double-text">
+    <div class="intro-text">
+      <h2>🔒 LinkedIn's Official Rules</h2>
+      <p>Many professionals ask whether this tool is fully legal or just another gray-area risk. <br>LinkedIn prohibits any third-party tools that:</p>
+      <ul>
+        <li>❌ Scrape or copy data from LinkedIn profiles</li>
+        <li>❌ Use bots, scripts, browser plugins, or extensions that <br>Automate messages, connection requests, or search activity</li>
+        
+        <li>❌ Alter the appearance or functionality of LinkedIn pages</li>
+        <li>❌ Generate fake accounts or engagement</li>
+        <li>❌ Bypass LinkedIn’s access controls or rate limits</li>
+      </ul>
+      <p>📄 View the full policy on prohibited tools on 
+        <a href="https://www.linkedin.com/help/linkedin/answer/a1341387/prohibited-software-and-extensions?lang=en" target="_blank">
+          LinkedIn’s official page
+        </a>.
+      </p>
+    </div>
+  
+    <div class="intro-text">
+      <h2>✅ 100% LinkedIn-Friendly by Design</h2>
+      <p>This Boolean String Generator is fully compliant:</p>
+      <ul>
+        <li>✔️ No scraping, no automation, no logins required</li>
+        <li>✔️ Doesn’t interact with LinkedIn’s backend or UI</li>
+        <li>✔️ Purely builds text-based Boolean search queries</li>
+        <li>✔️ Works outside LinkedIn</li>
+        <li>✔️ Safe for in-house recruiters and agency professionals</li>
+        <li>✔️ Promotes ethical sourcing without any TOS violations</li>
+      </ul>
+      <p>Use with confidence — this tool respects LinkedIn’s rules and your account’s safety.</p>
+    </div>
+  </section>
+
   <main>
     <div class="container">
-      <h1>Boolean Search Generator</h1>
+      <h1 id="main-app">Boolean Search Generator</h1>
 
       <div class="form-grid">
         
@@ -434,55 +506,7 @@
     </div>
   </main>
 
-  <section class="intro double-text">
-    <div class="intro-text">
-      <h2>💡 Tips for Smarter Searches</h2>
-      <p>
-        New to Boolean search? Start simple by using "OR" to group similar job titles (e.g. "Designer" OR "Creative Director"), "AND" to combine key skills (e.g. "Figma" AND "UX"), and "NOT" to exclude unwanted terms (e.g. NOT "Intern"). The generator ensures the logic is correctly formatted so your results are sharp and relevant.
-      </p>
-    </div>
   
-    <div class="intro-text">
-      <h2>🌐 Where Can I Use the Strings?</h2>
-      <p>
-        The Boolean strings you generate here work seamlessly in LinkedIn search, but they're also useful for Google (e.g., "site:linkedin.com/in"), GitHub, job boards, CRM platforms, and even browser extensions that support Boolean logic. It's a versatile tool that fits right into your sourcing workflow.
-      </p>
-    </div>
-  </section>
-
-  <section class="intro double-text">
-    <div class="intro-text">
-      <h2>🔒 LinkedIn's Official Rules</h2>
-      <p>Many professionals ask whether this tool is fully legal or just another gray-area risk. <br>LinkedIn prohibits any third-party tools that:</p>
-      <ul>
-        <li>❌ Scrape or copy data from LinkedIn profiles</li>
-        <li>❌ Use bots, scripts, browser plugins, or extensions that <br>Automate messages, connection requests, or search activity</li>
-        
-        <li>❌ Alter the appearance or functionality of LinkedIn pages</li>
-        <li>❌ Generate fake accounts or engagement</li>
-        <li>❌ Bypass LinkedIn’s access controls or rate limits</li>
-      </ul>
-      <p>📄 View the full policy on prohibited tools on 
-        <a href="https://www.linkedin.com/help/linkedin/answer/a1341387/prohibited-software-and-extensions?lang=en" target="_blank">
-          LinkedIn’s official page
-        </a>.
-      </p>
-    </div>
-  
-    <div class="intro-text">
-      <h2>✅ 100% LinkedIn-Friendly by Design</h2>
-      <p>This Boolean String Generator is fully compliant:</p>
-      <ul>
-        <li>✔️ No scraping, no automation, no logins required</li>
-        <li>✔️ Doesn’t interact with LinkedIn’s backend or UI</li>
-        <li>✔️ Purely builds text-based Boolean search queries</li>
-        <li>✔️ Works outside LinkedIn</li>
-        <li>✔️ Safe for in-house recruiters and agency professionals</li>
-        <li>✔️ Promotes ethical sourcing without any TOS violations</li>
-      </ul>
-      <p>Use with confidence — this tool respects LinkedIn’s rules and your account’s safety.</p>
-    </div>
-  </section>
   
 
   <footer>
@@ -679,29 +703,79 @@
 
   // Add input fields dynamically
   function addField(sectionId) {
-    const container = document.getElementById(sectionId);
-    const div = document.createElement("div");
-    div.className = "input-group";
-    const input = document.createElement("input");
-    input.type = "text";
-    input.placeholder = `Enter value...`;
-    input.oninput = () => filterSuggestions(input, sectionId); // Trigger suggestion on input change
-    const removeBtn = document.createElement("button");
-    removeBtn.textContent = "X";
+  const container = document.getElementById(sectionId);
+  const div = document.createElement("div");
+  div.className = "input-group";
+  const input = document.createElement("input");
+  input.type = "text";
+  input.placeholder = "Enter value...";
+  input.oninput = () => filterSuggestions(input, sectionId); // Trigger suggestion on input change
 
-    removeBtn.onclick = () => {
-    // Remove suggestion box if any exists for this input
-    const suggestionBox = div.querySelector(".suggestions");
-    if (suggestionBox) {
-      suggestionBox.remove();
-    }
+  const removeBtn = document.createElement("button");
+  removeBtn.textContent = "X";
+
+  removeBtn.onclick = () => {
+    // Call clearSuggestions for the specific section before removing the input field
+    clearSuggestions(sectionId);
     div.remove();
-    };
+  };
 
-    div.appendChild(input);
-    div.appendChild(removeBtn);
-    container.appendChild(div);
+  div.appendChild(input);
+  div.appendChild(removeBtn);
+  container.appendChild(div);
+}
+
+function displaySuggestions(input, suggestions, sectionId) {
+  clearSuggestions(sectionId);
+
+  const suggestionContainer = document.createElement("div");
+  suggestionContainer.classList.add("suggested-results");
+
+  suggestions.forEach(suggestion => {
+    const suggestionElement = document.createElement("div");
+    suggestionElement.classList.add("suggestion");
+    suggestionElement.textContent = suggestion;
+    suggestionElement.onclick = () => {
+      input.value = suggestion;
+      clearSuggestions(sectionId);
+    };
+    suggestionContainer.appendChild(suggestionElement);
+  });
+
+  document.getElementById(sectionId).appendChild(suggestionContainer);
+}
+
+function filterSuggestions(input, sectionId) {
+  const query = input.value.toLowerCase();
+  const allSuggestions = suggestionSources[sectionId] || [];
+  const filtered = allSuggestions.filter(item => item.toLowerCase().startsWith(query));
+
+  if (query.length === 0 || !filtered.length) {
+    clearSuggestions(sectionId);
+    return;
   }
+
+  displaySuggestions(input, filtered, sectionId);
+}
+
+function clearSuggestions(sectionId) {
+  const suggestionContainers = document.querySelectorAll(`#${sectionId} .suggested-results`);
+  suggestionContainers.forEach(container => container.remove());
+}
+
+// --- CLICK OUTSIDE TO CLOSE (Adapt for dynamically added inputs) ---
+document.addEventListener("click", (event) => {
+  document.querySelectorAll('.section > div.input-group > input').forEach(inputElement => {
+    const sectionId = inputElement.closest('.section')?.querySelector('[id]')?.id;
+    const suggestionContainer = inputElement.parentElement?.querySelector('.suggested-results');
+
+    const clickedInside = inputElement.contains(event.target) || suggestionContainer?.contains(event.target);
+
+    if (sectionId && !clickedInside) {
+      clearSuggestions(sectionId);
+    }
+  });
+});
 
   function searchOnGoogle() {
   let output = document.getElementById("output").textContent.trim();
