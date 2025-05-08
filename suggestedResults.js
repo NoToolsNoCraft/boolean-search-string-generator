@@ -397,7 +397,7 @@ const locationSuggestions = [
 const industrySuggestions = [
     "Agriculture", "Automotive", "Aerospace", "Banking", "Biotechnology", "Chemicals", "Construction", "Consulting", "Consumer Electronics", 
     "Consumer Goods", "Education", "Energy", "Entertainment", "Fashion", "Finance", "Healthcare", "Hospitality", "Human Resources", 
-    "Information Technology", "Insurance", "Legal", "Manufacturing", "Media", "Mining", "Nonprofit", "Pharmaceutical", "Public Sector", 
+    "Information Technology", "IT", "Insurance", "Legal", "Manufacturing", "Media", "Mining", "Nonprofit", "Pharmaceutical", "Public Sector", 
     "Real Estate", "Retail", "Telecommunications", "Transportation", "Utilities", "Waste Management", "Food and Beverage", "Publishing", 
     "Technology", "Tourism", "Sports", "Marketing", "Advertising", "Wholesale", "E-commerce", "Art and Design", "Logistics", "Health and Wellness", 
     "Government", "Defense", "Financial Services", "Cryptocurrency", "Environmental Services", "Renewable Energy", "Luxury Goods", "Digital Media", 
