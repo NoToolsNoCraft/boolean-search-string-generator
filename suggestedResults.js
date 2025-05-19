@@ -23,7 +23,7 @@ const jobTitleSuggestions = [
     
     "Sales Representative", "Sales Associate", "Account Executive", "Account Manager",
     "Inside Sales Representative", "Outside Sales Representative", "Field Sales Representative",
-    "Sales Development Representative (SDR)", "Business Development Representative (BDR)",
+    "Sales Development Representative", "SDR", "Business Development Representative", "BDR",
     "Territory Sales Manager", "Regional Sales Manager", "Enterprise Sales Executive",
     "Retail Sales Associate",
     
@@ -67,6 +67,7 @@ const jobTitleSuggestions = [
     "Demand Generation Manager", "B2B Marketing Specialist", "B2C Marketing Specialist", "Trade Marketing Specialist",
     "Marketing Campaign Manager", "Advertising Specialist", "Advertising Manager", "Market Research Analyst",
     "Market Research Manager", "Media Buyer", "Media Planner", "Community Manager", "Content Strategist",
+    "PLM", "Product Lifecycle Manager",
     
     "HR Specialist", "HR Manager", "HR Assistant", "HR Coordinator", "HR Generalist", "HR Business Partner",
     "Talent Acquisition Specialist", "TA Specialist", "Talent Acquisition Manager", "TA Manager",
@@ -196,7 +197,7 @@ const locationSuggestions = [
     "Ljubljana", "Maribor", "Celje", "Kranj", "Velenje", "Koper", "Novo Mesto", "Ptuj", "Trbovlje", "Kamnik",
 
     // Bosnia and Herzegovina
-    "Bosnia and Herzegovina, Bosna i Hercegovina",
+    "Bosnia and Herzegovina", "Bosna i Hercegovina",
     "Sarajevo", "Banja Luka", "Tuzla", "Zenica", "Mostar", "Bihać", "Doboj", "Brčko", "Prijedor", "Trebinje",
 
     // North Macedonia
@@ -418,25 +419,25 @@ const industrySuggestions = [
 
 const skillsSuggestions = [
     // Web Development
-    "HTML", "CSS", "JavaScript", "React", "Angular", "Vue.js", "Node.js", "Express.js", "Bootstrap", "Sass", 
-    "jQuery", "Webpack", "TypeScript", "Gatsby", "Next.js", "GraphQL", "RESTful APIs", "Docker", "Kubernetes", "Git",
-    "Jest", "Mocha", "Redux", "NPM", "Yarn", "Firebase", "WebSockets", "PWA (Progressive Web Apps)", "SEO",
+    "HTML", "CSS", "JavaScript", "JS", "React",
+    "jQuery", "Webpack", "Gatsby", "Next.js", "GraphQL", "RESTful APIs", "Git",
+    "Jest", "Mocha", "Redux", "NPM", "Yarn", "Firebase", "WebSockets", "PWA", "Progressive Web Apps",
     
     // Front-End Development
-    "HTML5", "CSS3", "React Native", "Vue.js", "Bootstrap", "Tailwind CSS", "SASS", "Responsive Design", 
-    "JavaScript (ES6+)", "jQuery", "TypeScript", "Front-End Frameworks", "Material UI", "Design Systems", 
-    "CSS Preprocessors", "Canvas API", "SVG", "Web Accessibility (WCAG)", "GraphQL", "Angular", "D3.js",
+    "HTML5", "CSS3", "Vue.js", "Bootstrap", "Tailwind CSS", "SASS",
+    "JavaScript (ES6+)", "TypeScript", "Front-End Frameworks", "Material UI",
+    "CSS Preprocessors", "Canvas API", "SVG", "Web Accessibility (WCAG)", "Angular", "D3.js",
     
     // Back-End Development
-    "Node.js", "Express.js", "Python", "Java", "Ruby", "PHP", "C#", "Go", "Swift", "Rust", "Spring Boot",
-    "Flask", "Django", "Laravel", "ASP.NET", "Ruby on Rails", "MongoDB", "PostgreSQL", "MySQL", "SQLite",
-    "NoSQL", "GraphQL", "WebSocket", "Apache", "Nginx", "Redis", "JWT", "OAuth", "API Development",
-    "Microservices", "Serverless Architecture", "Docker", "Kubernetes", "AWS", "Azure", "Google Cloud Platform", 
+    "Node.js", "Express.js", "Java", "Ruby", "PHP", "Go", "Rust", "Spring Boot",
+    "Flask", "Django", "Laravel", "ASP.NET", "Ruby on Rails", "MongoDB", "PostgreSQL", "MySQL",
+     "WebSocket", "Apache", "Redis", "JWT", "OAuth", "API Development",
+    "Microservices", "Serverless Architecture", "Docker", "Kubernetes", 
     "Terraform", "Cloud Functions", "CI/CD", "Jenkins", "GitLab CI", "Bitbucket Pipelines", "Vault", "Apache Kafka",
     
     // Mobile Development
-    "Java", "Kotlin", "Swift", "Objective-C", "React Native", "Flutter", "Xamarin", "Ionic", "Cordova",
-    "Android SDK", "iOS Development", "Firebase", "Xcode", "Android Studio", "UI/UX Design", "RESTful APIs", 
+    "Kotlin", "Swift", "Objective-C", "React Native", "Flutter", "Xamarin", "Ionic", "Cordova",
+    "Android SDK", "iOS Development", "Xcode", "Android Studio", 
     "SQLite", "Push Notifications", "App Store Deployment", "Google Play Store", "App Analytics", "Crashlytics",
     
     // Data Science & Machine Learning
@@ -447,17 +448,17 @@ const skillsSuggestions = [
     
     // DevOps & Cloud Engineering
     "Docker", "Kubernetes", "Terraform", "AWS", "Azure", "Google Cloud Platform", "Jenkins", "Ansible", "Puppet",
-    "Chef", "Git", "CI/CD", "GitLab", "Bitbucket", "CloudFormation", "CloudWatch", "Nginx", "Apache", "Vagrant",
+    "Chef", "GitLab", "Bitbucket", "CloudFormation", "CloudWatch", "Nginx", "Vagrant",
     "Linux", "Bash", "Shell Scripting", "AWS Lambda", "Azure Functions", "Cloud Security", "Scaling", "Load Balancing",
     
     // Cybersecurity
     "Penetration Testing", "Network Security", "Firewall Configuration", "Encryption", "Ethical Hacking", "OWASP", 
-    "SIEM", "Malware Analysis", "Incident Response", "Risk Assessment", "Vulnerability Management", "Wireshark",
+    "SIEM", "Malware Analysis", "Incident Response", "Vulnerability Management", "Wireshark",
     "Kali Linux", "Metasploit", "CompTIA Security+", "CEH", "CISSP", "SOC", "GDPR", "Firewall Management", "Cloud Security",
     
     // UI/UX Design
     "Figma", "Sketch", "Adobe XD", "Photoshop", "Illustrator", "InVision", "Wireframing", "Prototyping", "User Research",
-    "UI/UX Design", "Responsive Design", "Interaction Design", "Usability Testing", "User Personas", "Information Architecture",
+    "UI/UX Design", "UI Design", "UX Design", "Responsive Design", "Interaction Design", "User Personas", "Information Architecture",
     "User Flows", "Design Systems", "Mobile UI/UX", "User-Centered Design", "Heuristic Evaluation", "Axure RP",
     
     // Game Development
@@ -468,7 +469,7 @@ const skillsSuggestions = [
     // Digital Marketing
     "SEO", "Google Analytics", "Google Ads", "Facebook Ads", "PPC (Pay-Per-Click)", "Social Media Marketing", "Content Marketing", 
     "Email Marketing", "Affiliate Marketing", "Branding", "Copywriting", "Marketing Automation", "Conversion Optimization", 
-    "Influencer Marketing", "Growth Hacking", "Google Tag Manager", "CRM (Customer Relationship Management)", "SEM", "Marketing Strategy",
+    "Influencer Marketing", "Growth Hacking", "Google Tag Manager", "CRM (Customer Relationship Management)", "SEM", "Search Engine Marketing", "Marketing Strategy",
     
     // Project Management
     "Agile", "Scrum", "Jira", "Trello", "Kanban", "Project Planning", "Risk Management", "Stakeholder Communication", "Gantt Charts",
@@ -479,10 +480,10 @@ const skillsSuggestions = [
     "Business Analysis", "Requirements Gathering", "SWOT Analysis", "Business Process Mapping", "Gap Analysis", "Stakeholder Management",
     "Cost-Benefit Analysis", "Risk Assessment", "Change Management", "Lean Six Sigma", "Process Improvement", "Market Research", 
     "Strategic Planning", "Consulting", "Agile Transformation", "Project Management", "Business Intelligence", "Data Analysis", 
-    "CRM Systems", "Salesforce", "ERP", "Vendor Management", "Customer Experience", "Operational Efficiency", "Budget Management",
+    "CRM Systems", "ERP", "Vendor Management", "Customer Experience", "Operational Efficiency", "Budget Management",
     
     // Finance & Accounting
-    "Accounting", "Financial Reporting", "Excel", "QuickBooks", "Xero", "Financial Analysis", "Budgeting", "Forecasting", "Audit",
+    "Accounting", "Financial Reporting", "Excel", "QuickBooks", "Xero", "Financial Analysis", "Forecasting", "Audit",
     "Financial Modeling", "Tax Preparation", "Accounts Payable", "Accounts Receivable", "Cost Accounting", "General Ledger",
     "ERP Systems", "CPA", "CFA", "Financial Planning", "Investment Banking", "Mergers & Acquisitions", "Risk Management",
     "Corporate Finance", "Valuation", "Cash Flow Management", "Fundraising", "Private Equity", "Venture Capital",
@@ -494,11 +495,11 @@ const skillsSuggestions = [
     "Customer Feedback", "Problem Solving", "Sales Presentations", "Sales Negotiation", "Email Outreach",
 
     // Quality Assurance Engineer
-    "Manual Testing", "Automated Testing", "Selenium", "Cypress", "JUnit", "TestNG", "Postman", "Jira", "Bug Tracking", 
+    "Manual Testing", "Automated Testing", "Selenium", "Cypress", "TestNG", "Postman", "Bug Tracking", 
     "Test Case Design", "Test Plan", "Smoke Testing", "Regression Testing", "Performance Testing", "Load Testing", 
     "Usability Testing", "API Testing", "Unit Testing", "Integration Testing", "Acceptance Testing", "Functional Testing", 
     "Cross-browser Testing", "Cross-platform Testing", "Test Automation Frameworks", "Automation Scripting", "Appium", 
-    "Robot Framework", "Katalon Studio", "Quality Center", "CI/CD", "DevOps", "Agile Methodology", "Scrum", "Kanban", 
+    "Robot Framework", "Katalon Studio", "Quality Center", "DevOps", "Agile Methodology",
     "Test Execution", "Test Reporting", "Version Control (Git)", "SQL for Testing", "Database Testing", "Test Metrics", 
     "JUnit", "Mockito", "Cucumber", "TDD (Test-Driven Development)", "BDD (Behavior-Driven Development)", "Test Coverage", 
     "Bug Reporting", "Test Automation Strategies", "Mobile Testing", "Security Testing", "User Acceptance Testing (UAT)", "Playwright",

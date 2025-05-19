@@ -197,12 +197,15 @@
     }
 
     #output {
-      background: #eee;
-      padding: 15px;
-      border-radius: 5px;
-      white-space: pre-wrap;
-      font-size: 17px;
-    }
+  background: #eee;
+  padding: 15px;
+  border-radius: 5px;
+  white-space: pre-wrap;
+  font-size: 17px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
 
     button {
     display: inline-block;
@@ -527,8 +530,10 @@
 
       <div class="section">
         <h3>Generated Boolean Search</h3>
-        <pre id="output"></pre>
-        
+        <textarea id="output"
+            rows="6"
+            style="width:100%; font-family:monospace; white-space:pre; resize:vertical;"
+            placeholder="Your generated Boolean search will appear here…"></textarea>
       </div>
       <label class="checkbox-button" for="enableExpansions">
         <input type="checkbox" id="enableExpansions" checked />
@@ -806,14 +811,14 @@
   if (excludesQuery) parts.push(excludesQuery);
 
   const finalQuery = parts.join(" \nAND ");
-  document.getElementById("output").textContent = finalQuery || "No input provided.";
+  document.getElementById("output").value = finalQuery || "No input provided.";
 }
 
 
 
   // Copy to clipboard
   function copyToClipboard() {
-    const output = document.getElementById("output").textContent;
+    const output = document.getElementById("output").value;
     navigator.clipboard.writeText(output).then(() => {
       alert("Copied to clipboard!");
     }).catch(err => {
@@ -898,7 +903,7 @@ document.addEventListener("click", (event) => {
 });
 
   function searchOnGoogle() {
-  let output = document.getElementById("output").textContent.trim();
+  let output = document.getElementById("output").value.trim();
   if (!output) {
     alert("Please generate a Boolean search string first.");
     return;
@@ -976,7 +981,7 @@ function resetFields() {
     if (section) section.innerHTML = ''; // Clear all inputs and their associated "X" buttons
   });
 
-  document.getElementById('output').textContent = ''; // Clear generated output if needed
+  document.getElementById('output').value = ''; // Clear generated output if needed
 }
 
 

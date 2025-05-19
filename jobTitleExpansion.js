@@ -824,6 +824,7 @@ const jobTitleExpansions = {
   "qa engineer": ["QA Engineer", "Quality Assurance Engineer", "Software QA Engineer", "Quality Engineer"],
   "qa analyst": ["QA Analyst", "Quality Assurance Analyst", "Software Quality Assurance Analyst"],
   "software quality assurance analyst": ["QA Analyst", "Quality Assurance Analyst", "Software Quality Assurance Analyst"],
+  "quality assurance analyst": ["QA Analyst", "Quality Assurance Analyst", "Software Quality Assurance Analyst"],
   "qa tester": ["QA Tester", "Software Tester", "Tester"],
   "qa automation engineer": ["QA Automation Engineer", "Test Automation Engineer", "Automation QA Tester", "SDET", "Software Development Engineer in Test"],
   "qa automation tester": ["QA Automation Tester", "Test Automation Engineer", "Automation QA Tester"],
