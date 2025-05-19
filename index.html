@@ -197,15 +197,15 @@
     }
 
     #output {
-  background: #eee;
-  padding: 15px;
-  border-radius: 5px;
-  white-space: pre-wrap;
-  font-size: 17px;
-  width: 100%;
-  box-sizing: border-box;
-  overflow-wrap: break-word;
-}
+      background: #f7f5f5;
+      padding: 15px;
+      border-radius: 5px;
+      white-space: pre-wrap;
+      font-size: 17px;
+      width: 100%;
+      box-sizing: border-box;
+      overflow-wrap: break-word;
+    }
 
     button {
     display: inline-block;
@@ -284,7 +284,7 @@
     align-items: center;
     
     gap: 8px;
-    padding: 8px 12px;
+    padding: 7px 12px;
     border: 1px solid #ccc;
     border-radius: 8px;
     white-space: nowrap;
@@ -296,6 +296,12 @@
   .checkbox-button input[type="checkbox"] {
     margin: 0;
   }
+
+  @media (max-width: 768px) {
+  .checkbox-button {
+    margin-bottom: 1rem; /* Adjust spacing as needed */
+  }
+}
 
     @media (max-width: 768px) {
       .form-grid {

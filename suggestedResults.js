@@ -97,7 +97,55 @@ const jobTitleSuggestions = [
 ];
 
 const seniorityLevelsSuggestions = [
-    "Senior", "Junior", "Lead", "Manager", "Director", "VP", "c-level", "Intern", "Associate", "Analyst",
+    "Intern",
+    "Junior",
+    "Entry-Level",
+    "Associate",
+    "Analyst",
+    "Specialist",
+    "Coordinator",
+    "Executive",
+    "Consultant",
+    "Mid-Level",
+    "Senior",
+    "Lead",
+    "Principal",
+    "Supervisor",
+    "Manager",
+    "Senior Manager",
+    "Head",
+    "Director",
+    "Senior Director",
+    "Vice President",  // VP full form
+    "VP",              // Vice President short form
+    "Senior Vice President", // SVP full form
+    "SVP",             // Senior Vice President short form
+    "Associate Vice President", // AVP full form
+    "AVP",             // Associate Vice President short form
+    "C-Level",
+    "CXO",
+    "Chief",           // General chief title
+    "President",
+    "Founder",
+    "Co-Founder",
+    "Owner",
+    "Partner",
+    // Explicit C-level roles with both full and short forms
+    "Chief Executive Officer", // CEO full form
+    "CEO",
+    "Chief Technology Officer", // CTO full form
+    "CTO",
+    "Chief Financial Officer", // CFO full form
+    "CFO",
+    "Chief Operating Officer", // COO full form
+    "COO",
+    "Chief Information Officer", // CIO full form
+    "CIO",
+    "Chief Marketing Officer", // CMO full form
+    "CMO",
+    "Chief Strategy Officer", // CSO full form
+    "Chief Security Officer", // alternate CSO meaning
+    "CSO"
 ];
 
 const locationSuggestions = [
