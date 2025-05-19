@@ -11,10 +11,15 @@ const jobTitleSuggestions = [
     "Research Scientist", "Data Science Engineer", "AI Data Scientist",
     "Business Data Scientist", "Quantitative Researcher", "Quantitative Analyst (Quant)",
     
-    "UI/UX Designer", "Senior UI/UX Designer", "Junior UI/UX Designer",
+    "Designer", "UI/UX Designer", "Senior UI/UX Designer", "Junior UI/UX Designer",
     "UX Designer", "UI Designer", "Product Designer", "Interaction Designer",
     "User Experience Researcher", "UX Researcher", "Visual Designer",
     "UX Architect", "Mobile UX Designer", "Web UI Designer", "UX Strategist",
+    "Design Systems Designer", "Service Designer", "User Interface Engineer", "Information Architect",
+    "Motion Designer", "Experience Designer", "Digital Product Designer", "Lead UX Designer",
+    "UI/UX Developer", "Creative Director", "UX Copywriter", "Accessibility Designer",
+    "Human-Centered Designer", "Prototype Designer", "Design Thinking Facilitator", "Conversion Rate Optimization (CRO) Specialist",
+
     
     "Sales Representative", "Sales Associate", "Account Executive", "Account Manager",
     "Inside Sales Representative", "Outside Sales Representative", "Field Sales Representative",
@@ -405,7 +410,10 @@ const industrySuggestions = [
     "Interior Design", "Public Relations", "Security Services", "Retail Banking", "Venture Capital", "Social Media", "Digital Marketing", 
     "Engineering", "Medical Devices", "Nanotechnology", "Artificial Intelligence", "Data Science", "Robotics", "Cloud Computing", "Cybersecurity",
     "Blockchain", "3D Printing", "Construction Equipment", "Investment Banking", "Real Estate Development", "Talent Acquisition", "Legal Services",
-    "Event Planning", "Gaming", "Marine", "Space Exploration", "Charity", "Mergers and Acquisitions", "Coaching", "Franchise", "Subscription Services", "Software"
+    "Event Planning", "Gaming", "Marine", "Space Exploration", "Charity", "Mergers and Acquisitions", "Coaching", "Franchise", "Subscription Services", 
+    "Software", "Hardware", "E-learning", "Telehealth", "Telemedicine", "Augmented Reality", "Virtual Reality", "Mixed Reality", "Wearable Technology",
+    "Fintech", "Insurtech", "Edtech", "Healthtech", "Proptech", "Agtech", "Foodtech", "Traveltech", "Martech", "Adtech",
+    "Biopharma", "Medtech", "Cleantech", "Greentech", "Smart Home", "Smart City", "Mobility", "Transportation Services", "Logistics and Supply Chain", "Apple"
   ];
 
 const skillsSuggestions = [

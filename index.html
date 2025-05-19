@@ -212,7 +212,7 @@
     border: 2px solid #ff4742;
     color: #fff;
     background-color: #ff4742;
-    padding: 4px 8px; /* reduced padding */
+    padding: 5px 8px; /* reduced padding */
     box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 4px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1.5px 0px;
     font-weight: 600; /* slightly lighter */
     font-size: 14px;  /* smaller font */
@@ -274,6 +274,25 @@
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 0 20px;
     }
+
+
+      .checkbox-button {
+    display: inline-flex;
+    align-items: center;
+    
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    white-space: nowrap;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    font-family: sans-serif;
+  }
+
+  .checkbox-button input[type="checkbox"] {
+    margin: 0;
+  }
 
     @media (max-width: 768px) {
       .form-grid {
@@ -511,6 +530,10 @@
         <pre id="output"></pre>
         
       </div>
+      <label class="checkbox-button" for="enableExpansions">
+        <input type="checkbox" id="enableExpansions" checked />
+        Keyword Expand Mode
+      </label>
       <button onclick="copyToClipboard()">📋 Copy to Clipboard</button>
       <button onclick="searchOnGoogle()">🔍 Search on Google</button>
       <button class="reset" onclick="resetFields()">♻️ Reset</button>
@@ -617,10 +640,16 @@
 
 
 <script>
+
   // Helper functions
   function quoteIfNeeded(value) {
     return value.includes(" ") ? `"${value}"` : value;
   }
+
+    function isExpansionEnabled() {
+  return document.getElementById("enableExpansions").checked;
+}
+
 
   function collectValues(sectionId) {
     return [...document.getElementById(sectionId).querySelectorAll("input")]
@@ -628,127 +657,91 @@
       .filter(value => value);
   }
 
-  const locationExpansions = {
-    "uk": ["UK", "United Kingdom"],
-    "united kingdom": ["UK", "United Kingdom"],
-    "us": ["US", "United States", "USA"],
-    "united states": ["US", "United States", "USA"],
-    "usa": ["US", "United States", "USA"],
-    "uae": ["UAE", "United Arab Emirates"],
-    "germany": ["Germany", "Deutschland"],
-    "netherlands": ["Netherlands", "Holland"],
-    "united arab emirates": ["UAE", "United Arab Emirates"],
-    "uae": ["UAE", "United Arab Emirates"],
-    // Add more countries/regions as needed
-  };
-
-  const industryExpansions = {
-    "apple": ["Apple", "Mac", "iOS"],
-    "microsoft": ["Microsoft", "Windows", "Azure"],
-    "google": ["Google", "Android", "YouTube"],
-    "amazon": ["Amazon", "AWS", "Prime"],
-    // Add more companies/brands/tech domains as needed
-  };
-
-  function expandLocations(locations) {
-    const flatSet = new Set();
-
-    return locations.map(loc => {
-      const key = loc.trim().toLowerCase();
-      const expansions = locationExpansions[key];
-
-      if (expansions && expansions.length > 1) {
-        const deduped = expansions
-          .map(quoteIfNeeded)
-          .filter(item => {
-            if (flatSet.has(item.toLowerCase())) return false;
-            flatSet.add(item.toLowerCase());
-            return true;
-          });
-
-        return deduped.length > 1 ? `(${deduped.join(" OR ")})` : deduped[0];
-      } else {
-        const cleaned = quoteIfNeeded(loc);
-        if (flatSet.has(cleaned.toLowerCase())) return null;
-        flatSet.add(cleaned.toLowerCase());
-        return cleaned;
-      }
-    }).filter(Boolean);
-  }
-
-  function expandIndustries(industries) {
-    const flatSet = new Set();
-
-    return industries.map(ind => {
-      const key = ind.trim().toLowerCase();
-      const expansions = industryExpansions[key];
-
-      if (expansions && expansions.length > 1) {
-        const deduped = expansions
-          .map(quoteIfNeeded)
-          .filter(item => {
-            if (flatSet.has(item.toLowerCase())) return false;
-            flatSet.add(item.toLowerCase());
-            return true;
-          });
-
-        return deduped.length > 1 ? `(${deduped.join(" OR ")})` : deduped[0];
-      } else {
-        const cleaned = quoteIfNeeded(ind);
-        if (flatSet.has(cleaned.toLowerCase())) return null;
-        flatSet.add(cleaned.toLowerCase());
-        return cleaned;
-      }
-    }).filter(Boolean);
-  }
+  
 
   function generateBoolean() {
 
-  const jobTitlesRaw = collectValues("jobTitles").map(quoteIfNeeded);
-  const excludeJobTitles = collectValues("excludeJobTitles").map(quoteIfNeeded);
+  const jobTitlesRaw = collectValues("jobTitles");
+  const expandedJobTitles = expandJobTitles(jobTitlesRaw);
+
+  const excludeJobTitlesRaw = collectValues("excludeJobTitles");
+  const excludeJobTitles = expandJobTitles(excludeJobTitlesRaw);
+
 
   const locationsRaw = collectValues("locations");
   const excludelocations = collectValues("excludelocations").map(quoteIfNeeded);
 
   const industriesRaw = collectValues("industries");
   const excludeindustries = collectValues("excludeindustries").map(quoteIfNeeded);
+  const expandedExcludeIndustries = expandIndustries(excludeindustries);
 
   const excludesRaw = collectValues("excludes").map(val => `NOT ${quoteIfNeeded(val)}`);
-  const mandatorySkills = collectValues("mandatorySkills").map(quoteIfNeeded);
-  const niceSkills = collectValues("niceSkills").map(quoteIfNeeded);
 
-  const currentCompanies = collectValues("currentCompanies").map(quoteIfNeeded).join(" OR ");
-  const pastCompanies = collectValues("pastCompanies").map(quoteIfNeeded).join(" OR ");
-  const excludeCompanies = collectValues("excludeCompanies").map(quoteIfNeeded);
+  const mandatorySkillsRaw = collectValues("mandatorySkills");
+  const mandatorySkills = expandMandatorySkills(mandatorySkillsRaw);
+
+  const niceSkillsRaw = collectValues("niceSkills");
+  const niceSkills = expandNiceSkills(niceSkillsRaw);
+
+
+
+
+  const currentCompaniesRaw = collectValues("currentCompanies");
+  const expandedCurrentCompanies = expandCompanies(currentCompaniesRaw);
+  const currentCompaniesQuery = expandedCurrentCompanies.length > 1
+    ? `(${expandedCurrentCompanies.join(" OR ")})`
+    : expandedCurrentCompanies[0];
+
+  const expandedPastCompanies = expandPastCompanies(collectValues("pastCompanies"));
+  const pastCompaniesQuery = expandedPastCompanies.length > 1
+    ? `(${expandedPastCompanies.join(" OR ")})`
+    : expandedPastCompanies[0];
+
+  const expandedExcludes = expandExcludeCompanies(collectValues("excludeCompanies"));
 
   const schools = collectValues("schools").map(quoteIfNeeded).join(" OR ");
   const fieldsOfStudy = collectValues("fieldsOfStudy").map(quoteIfNeeded).join(" OR ");
   
-  const seniorityLevels = collectValues("seniorityLevels").map(quoteIfNeeded).join(" OR ");
-  const excludeseniorityLevels = collectValues("excludeseniorityLevels").map(quoteIfNeeded);
+   const seniorityRaw = collectValues("seniorityLevels");
+  const expandedSeniority = expandSeniorityLevels(seniorityRaw);
+  const seniorityQuery = expandedSeniority.length > 1
+    ? `(${expandedSeniority.join(" OR ")})`
+    : expandedSeniority[0] || null;
+
+  const excludesSeniorityRaw = collectValues("excludeseniorityLevels");
+  const expandedExcludeSeniority = expandSeniorityLevels(excludesSeniorityRaw);
+
 
 
   const keywords = collectValues("keywords").map(quoteIfNeeded).join(" OR ");
 
 
 
-  const jobTitlesQuery = jobTitlesRaw.length > 1
-    ? `(${jobTitlesRaw.join(" OR ")})`
-    : jobTitlesRaw[0];
+  const jobTitlesQuery = expandedJobTitles.length > 1
+  ? `(${expandedJobTitles.join(" OR ")})`
+  : expandedJobTitles[0];
+
 
   const expandedIndustries = expandIndustries(industriesRaw);
   const industriesQuery = expandedIndustries.length > 1
     ? `(${expandedIndustries.join(" OR ")})`
     : expandedIndustries[0];
 
+  
+
   const expandedLocations = expandLocations(locationsRaw);
   const locationsQuery = expandedLocations.length > 1
     ? `(${expandedLocations.join(" OR ")})`
     : expandedLocations[0];
 
+  const excludeLocationsRaw = collectValues("excludelocations");
+  const excludeLocationsExpanded = isExpansionEnabled()
+    ? expandLocations(excludeLocationsRaw)
+    : excludeLocationsRaw.map(quoteIfNeeded);
+
   const mandatorySkillsQuery = mandatorySkills.length > 0
-    ? mandatorySkills.join(" AND ")
-    : null;
+  ? mandatorySkills.join(" AND ")
+  : null;
 
   const niceSkillsQuery = niceSkills.length > 1
     ? `(${niceSkills.join(" OR ")})`
@@ -758,26 +751,53 @@
 
   const parts = [];
   if (jobTitlesQuery) parts.push(jobTitlesQuery);
-  if (excludeJobTitles.length) parts.push(`NOT (${excludeJobTitles.join(" OR ")})`);
+
+  if (excludeJobTitles.length === 1) {
+      parts.push(`NOT ${excludeJobTitles[0]}`);
+    } else if (excludeJobTitles.length > 1) {
+      parts.push(`NOT (${excludeJobTitles.join(" OR ")})`);
+    }
 
   if (mandatorySkillsQuery) parts.push(mandatorySkillsQuery);
   if (niceSkillsQuery) parts.push(niceSkillsQuery);
 
   if (locationsQuery) parts.push(locationsQuery);
-  if (excludelocations.length) parts.push(`NOT (${excludelocations.join(" OR ")})`);
+  if (excludeLocationsExpanded.length) {
+  if (excludeLocationsExpanded.length === 1) {
+    parts.push(`NOT ${excludeLocationsExpanded[0]}`);
+  } else {
+    parts.push(`NOT (${excludeLocationsExpanded.join(" OR ")})`);
+  }
+}
   
   if (industriesQuery) parts.push(industriesQuery);
-  if (excludeindustries.length) parts.push(`NOT (${excludeindustries.join(" OR ")})`);
+  if (expandedExcludeIndustries.length === 1) {
+    parts.push(`NOT ${expandedExcludeIndustries[0]}`);
+  } else if (expandedExcludeIndustries.length > 1) {
+    parts.push(`NOT (${expandedExcludeIndustries.join(" OR ")})`);
+  }
 
-  if (currentCompanies) parts.push(`(${currentCompanies})`);
-  if (pastCompanies) parts.push(`(${pastCompanies})`);
-  if (excludeCompanies.length) parts.push(`NOT (${excludeCompanies.join(" OR ")})`);
+  if (currentCompaniesQuery) parts.push(currentCompaniesQuery);
+
+  if (pastCompaniesQuery) parts.push(pastCompaniesQuery);
+
+  if (expandedExcludes.length === 1) {
+    parts.push(`NOT ${expandedExcludes[0]}`);
+  } else if (expandedExcludes.length > 1) {
+    parts.push(`NOT (${expandedExcludes.join(" OR ")})`);
+  }
 
   if (schools) parts.push(`(${schools})`);
   if (fieldsOfStudy) parts.push(`(${fieldsOfStudy})`);
  
-  if (seniorityLevels) parts.push(`(${seniorityLevels})`);
-  if (excludeseniorityLevels.length) parts.push(`NOT (${excludeseniorityLevels.join(" OR ")})`);
+  if (seniorityQuery) parts.push(seniorityQuery);
+  if (expandedExcludeSeniority.length) {
+    if (expandedExcludeSeniority.length === 1) {
+      parts.push(`NOT ${expandedExcludeSeniority[0]}`);
+    } else {
+      parts.push(`NOT (${expandedExcludeSeniority.join(" OR ")})`);
+    }
+  }
 
   
   if (keywords) parts.push(`(${keywords})`);
@@ -965,7 +985,10 @@ function resetFields() {
 </script>
 
 <script src="suggestedResults.js"></script>
-
+<script src="expand.js"></script>
+<script src="jobTitleExpansion.js"></script>
+<script src="mandatorySkillExpansions.js"></script>
+<script src="companyExpansions.js"></script>
 
 
 
