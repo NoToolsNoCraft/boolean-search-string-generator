@@ -41,7 +41,7 @@ const jobTitleSuggestions = [
     
     "DevOps Engineer", "Senior DevOps Engineer", "Junior DevOps Engineer",
     "Cloud DevOps Engineer", "DevOps Specialist", "Infrastructure Engineer",
-    "Site Reliability Engineer (SRE)", "Platform Engineer", "Systems Reliability Engineer",
+    "Site Reliability Engineer", "SRE", "Systems Reliability Engineer",
     "Automation Engineer", "Build and Release Engineer", "CI/CD Engineer",
     "DevOps Architect",
 
@@ -50,9 +50,9 @@ const jobTitleSuggestions = [
     "Frontend Developer", "Backend Developer", "Application Developer", "Mobile App Developer",
     "iOS Developer", "Android Developer", "Web Developer", "Embedded Software Engineer",
     "Cloud Engineer", "Platform Engineer", "Machine Learning Engineer", "AI Engineer",
-    "Data Engineer", "DevOps Engineer", "Site Reliability Engineer (SRE)",
+    "Data Engineer", "DevOps Engineer", 
     "Security Engineer", "Software Architect", "Solutions Architect", "Technical Lead",
-    "Software Development Engineer (SDE)", "Systems Engineer", "Game Developer", "Unity Developer",
+    "Software Development Engineer", "SDE", "Systems Engineer", "Game Developer", "Unity Developer",
     "Unreal Engine Developer", "Blockchain Developer", "Smart Contract Developer",
     "Software Development Manager", "Engineering Manager", "CTO (Chief Technology Officer)",
 
