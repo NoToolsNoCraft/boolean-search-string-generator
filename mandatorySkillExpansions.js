@@ -603,6 +603,64 @@ const mandatorySkillExpansions = {
 "two-factor authentication": ["2FA", "Two-Factor Authentication"],
 
 
+//SAP
+"o-data": ["O-Data", "OData"],
+"odata": ["O-Data", "OData"],
+"x-data": ["X-Data", "XData"],
+"xdata": ["X-Data", "XData"],
+"rest": ["REST", "Rest", "REST API", "RESTful", "RESTful API", "Representational State Transfer"],
+"restful": ["RESTful", "RESTful API", "RESTful service", "REST architecture"],
+
+// CDS / HANA
+  "cds": ["CDS", "Core Data Services", "CDS View", "CDS Views", "CDS Modeling"],
+  "core data services": ["CDS", "Core Data Services", "CDS Views"],
+  "hana": ["HANA", "SAP HANA", "HANA DB", "HANA Database", "SAP HANA Database", "SAP HANA DB", "In-Memory HANA"],
+  "hana db": ["HANA DB", "SAP HANA DB", "HANA Database", "SAP HANA"],
+  "cds-hana": ["CDS/HANA", "CDS and HANA", "Core Data Services on HANA"],
+// Restful Application Programming
+  "rap": ["RAP", "SAP RAP", "Restful Application Programming Model", "Restful ABAP Programming", "ABAP RAP"],
+  "restful abap programming": ["RAP", "SAP RAP", "Restful Application Programming Model", "Restful ABAP Programming", "ABAP RAP"],
+  "restful application programming": [
+    "Restful Application Programming",
+    "Restful Application Programming Model",
+    "SAP RAP",
+    "RAP Model",
+    "Restful ABAP",
+    "ABAP RAP"
+  ],
+
+  // SAP Fiori UI
+  "fiori": [
+    "SAP Fiori",
+    "Fiori",
+    "Fiori UI",
+    "SAP Fiori UI",
+    "SAP Fiori UX",
+    "Fiori User Interface",
+    "SAP Fiori Apps",
+    "Fiori Applications",
+    "Fiori Elements",
+    "Fiori Launchpad",
+    "Fiori Design Guidelines"
+  ],
+  "sap fiori": [
+    "SAP Fiori",
+    "SAP Fiori UI",
+    "SAP Fiori UX",
+    "SAP Fiori Applications",
+    "SAP Fiori Launchpad",
+    "Fiori Elements"
+  ],
+  "sapui5": ["SAPUI5", "UI5", "SAP UI5", "SAP Fiori UI"],
+  "sap fiori ui": ["SAPUI5", "UI5", "SAP UI5", "SAP Fiori UI"],
+  "sap ui5": ["SAPUI5", "UI5", "SAP UI5", "SAP Fiori UI"],
+  "ui5": ["SAPUI5", "UI5", "SAP UI5", "Fiori UI"]
+
+
+
+
+
+
 };
 
 

@@ -543,7 +543,7 @@ const skillsSuggestions = [
     "Customer Feedback", "Problem Solving", "Sales Presentations", "Sales Negotiation", "Email Outreach",
 
     // Quality Assurance Engineer
-    "Manual Testing", "Automated Testing", "Selenium", "Cypress", "TestNG", "Postman", "Bug Tracking", 
+    "Manual Testing", "Automated Testing", "Selenium", "Cypress", "TestNG", "Postman", "Bug Tracking", "Test Case",
     "Test Case Design", "Test Plan", "Smoke Testing", "Regression Testing", "Performance Testing", "Load Testing", 
     "Usability Testing", "API Testing", "Unit Testing", "Integration Testing", "Acceptance Testing", "Functional Testing", 
     "Cross-browser Testing", "Cross-platform Testing", "Test Automation Frameworks", "Automation Scripting", "Appium", 
@@ -552,6 +552,9 @@ const skillsSuggestions = [
     "JUnit", "Mockito", "Cucumber", "TDD (Test-Driven Development)", "BDD (Behavior-Driven Development)", "Test Coverage", 
     "Bug Reporting", "Test Automation Strategies", "Mobile Testing", "Security Testing", "User Acceptance Testing (UAT)", "Playwright",
 
+    //SAP
+    "O-Data", "X-Data", "CDS", "Restful Application Programming", "RAP", "HANA", "HANA DB", "SAP Fiori", "SAP UI5", "SAP Fiori UI",
+    "UI5", "Core Data Services", "Restful ABAP Programming",
   ];
 
   const companySuggestions = [
