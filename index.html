@@ -547,6 +547,7 @@
       </label>
       <button onclick="copyToClipboard()">📋 Copy to Clipboard</button>
       <button onclick="searchOnGoogle()">🔍 Search on Google</button>
+      <button onclick="searchOnGitHub()">🔍 Search on Google</button>
       <button class="reset" onclick="resetFields()">♻️ Reset</button>
 
 
@@ -908,7 +909,72 @@ document.addEventListener("click", (event) => {
   });
 });
 
-  function searchOnGoogle() {
+  function searchOnGitHub() {
+  let output = document.getElementById("output").value.trim();
+  if (!output) {
+    alert("Please generate a Boolean search string first.");
+    return;
+  }
+
+  // 1. Replace 'AND NOT (something)' with splitting exclusions
+  output = output.replace(/\s+AND\s+NOT\s+\(([^)]+)\)/g, (match, group) => {
+    const exclusions = group.split(/\s+OR\s+/).map(term => {
+      term = term.trim();
+      if (!term.startsWith('"')) {
+        term = `"${term}"`;
+      }
+      return `-${term}`;
+    });
+    return ' ' + exclusions.join(' ');
+  });
+
+  // 2. Replace 'AND NOT something' (without parentheses)
+  output = output.replace(/\s+AND\s+NOT\s+(\S+)/g, (match, term) => {
+    term = term.trim();
+    if (!term.startsWith('"')) {
+      term = `"${term}"`;
+    }
+    return ` -${term}`;
+  });
+
+  // 3. Replace 'AND' with a space
+  output = output.replace(/\s+AND\s+/g, ' ');
+
+  // 4. Process words carefully without breaking phrases
+  output = output.replace(/(\(|\)|OR|-?site:[^\s]+|-?"[^"]+"|-?\w+)/g, match => {
+    if (
+      match.startsWith('site:') ||    // already a site
+      match === 'OR' ||                // operator
+      match.startsWith('(') ||          // parentheses
+      match.startsWith(')') ||
+      match.startsWith('-"') ||         // already quoted exclusion
+      match.startsWith('"') ||          // already quoted inclusion
+      match.startsWith('-(')            // exclusion group
+    ) {
+      return match;
+    }
+    
+    if (match.startsWith('-')) {
+      // Exclusion word
+      const word = match.substring(1);
+      return `-"${word}"`;
+    }
+
+    // Normal word
+    return `"${match}"`;
+  });
+
+  // 5. Add site search
+  const base = 'site:github.com';
+  const fullQuery = `${base} ${output}`;
+
+  // 6. Encode and open
+  const encodedQuery = encodeURIComponent(fullQuery);
+  const searchUrl = `https://www.google.com/search?q=${encodedQuery}`;
+  window.open(searchUrl, '_blank');
+}
+
+function searchOnGoogle() {
   let output = document.getElementById("output").value.trim();
   if (!output) {
     alert("Please generate a Boolean search string first.");
