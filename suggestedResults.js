@@ -45,7 +45,7 @@ const jobTitleSuggestions = [
     "Automation Engineer", "Build and Release Engineer", "CI/CD Engineer",
     "DevOps Architect",
 
-    "Software Engineer", "Senior Software Engineer", "Junior Software Engineer",
+    "Developer", "Software Developer", "Software Engineer", "Senior Software Engineer", "Junior Software Engineer",
     "Frontend Engineer", "Backend Engineer", "Full Stack Engineer", "Full Stack Developer",
     "Frontend Developer", "Backend Developer", "Application Developer", "Mobile App Developer",
     "iOS Developer", "Android Developer", "Web Developer", "Embedded Software Engineer",
